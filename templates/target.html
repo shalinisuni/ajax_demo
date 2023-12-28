@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target Page</title>
+</head>
+<body>
+    <h1>Welcome to the Target Page</h1>
+    <form method="post">
+        <label for="target_name">Target Name:</label>
+        <input type="text" id="target_name" name="target_name" required>
+        <br>
+        <label for="target_id">Target ID:</label>
+        <input type="text" id="target_id" name="target_id" required>
+        <br>
+        <label for="target_details">Target Details:</label>
+        <input type="text" id="target_details" name="target_details" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    
+    <script>
+        setTimeout(function () {
+            alert(" your Session will expire, if you continue to be inactivate for 2 minutes");
+            window.location.href = "/target";
+        }, 60000);
+    </script>
+</body>
+</html>

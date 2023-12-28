@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target Page</title>
+    <script>
+        var timeout;
+
+        function startSessionTimeout() {
+            timeout = setTimeout(function() {
+                alert("Your session has expired");
+                window.location.href = "/";
+            }, 60000); // 1 minute in milliseconds
+        }
+
+        function resetSessionTimeout() {
+            clearTimeout(timeout);
+            startSessionTimeout();
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            startSessionTimeout();
+            document.addEventListener("mousemove", resetSessionTimeout);
+            document.addEventListener("keypress", resetSessionTimeout);
+        });
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Target Page</h1>
+    <p>Target Name: {{ target_name }}</p>
+    <p>Target ID: {{ target_id }}</p>
+    <button onclick="resetSessionTimeout()">Submit</button>
+</body>
+</html>
